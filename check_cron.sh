@@ -6,7 +6,7 @@ FILE_PATH="/home/${USER}/.s5"
 CRON_S5="nohup ${FILE_PATH}/s5 -c ${FILE_PATH}/config.json >/dev/null 2>&1 &"
 CRON_NEZHA="nohup ${WORKDIR}/start.sh >/dev/null 2>&1 &"
 PM2_PATH="/home/${USER}/.npm-global/lib/node_modules/pm2/bin/pm2"
-CRON_JOB="*/12 * * * * $PM2_PATH resurrect >> /home/$(whoami)/pm2_resurrect.log 2>&1"
+CRON_JOB="*/22 * * * * $PM2_PATH resurrect >> /home/$(whoami)/pm2_resurrect.log 2>&1"
 REBOOT_COMMAND="@reboot pkill -kill -u $(whoami) && $PM2_PATH resurrect >> /home/$(whoami)/pm2_resurrect.log 2>&1"
 
 echo "检查并添加 crontab 任务"
